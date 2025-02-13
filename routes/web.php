@@ -14,17 +14,10 @@ Route::any('/submit', function () {
     return 'Submitted';
 });
 
-Route::get('/test', function () {
-    $url = route('jobs');
-    return "<a href='$url'>Click Here</a>";
+Route::get('/post/{id}', function (string $id) {
+    return 'Post ' . $id;
+})->whereNumber('id');
+
+Route::get('/posts/{id}/comments/{commentId}', function (string $id, string $commentId) {
+    return 'Post ' . $id . 'Comment ' . $commentId;
 });
-
-Route::get('/api/users', function () {
-    return [
-        'name' => 'John Doe',
-        'email' => 'john@gmail.com'
-    ];
-});
-
-
-
