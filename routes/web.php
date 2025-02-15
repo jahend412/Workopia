@@ -2,14 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-// use Illuminate\Http\Response; 
+ use Illuminate\Http\Response; 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/jobs', function () {
-    $title='Available Jobs';
+    $title = 'Available Jobs';
     $jobs = [
         'Web Developer',
         'Database Admin',
@@ -17,7 +17,7 @@ Route::get('/jobs', function () {
         'Systems Analyst',
     ];
 
-    return view('jobs.index', compact('title'));
+    return view('jobs.index', compact('title', 'jobs'));
 })->name('jobs');
 
 Route::get('/jobs/create', function () {
